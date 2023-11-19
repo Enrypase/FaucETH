@@ -1,0 +1,12 @@
+type EventUpdated @entity(immutable: true) {
+  id: Bytes!
+  balance: BigInt! # uint256
+  name: String! # string
+  owner: Bytes! # address
+  whitelist: [Bytes!]! # address[]
+  withdrawLimit: BigInt! # uint256
+  withdrawInterval: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

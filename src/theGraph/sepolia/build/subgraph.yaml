@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Container
+    network: sepolia
+    source:
+      address: "0x6b289Ae64dD2e5076410aF340c4b9906b8c795b3"
+      abi: Container
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - EventUpdated
+      abis:
+        - name: Container
+          file: Container\abis\Container.json
+      eventHandlers:
+        - event: EventUpdated(uint256,string,address,address[],uint256,uint256)
+          handler: handleEventUpdated
+      file: Container\Container.wasm
